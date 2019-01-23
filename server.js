@@ -110,6 +110,9 @@ var recipes={"Spaghetti":{
 };
 var people={"doctorwhocomposer":{"username":"doctorwhocomposer", "forename":"Delia", "surname":"Derbyshire"}};
 app.get('/', function (req, res) {
+	res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+	
   // try to initialize the db on every request if it's not already
   // initialized.
   if (!db) {
