@@ -75,7 +75,6 @@ var initDb = function(callback) {
 
 const bodyParser=require('body-parser');
 
-app.use(cors());
 app.use(bodyParser.urlencoded({    
   extended: true
 })); 
