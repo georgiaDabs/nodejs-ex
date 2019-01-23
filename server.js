@@ -83,8 +83,8 @@ var recipes={"Spaghetti":{
     "description": "lrevnofn ",
     "rating": 4,
     "image": {
-      "small": "\images/foodExample1.jpg",
-      "large": "/images/foodExample1.jpg"
+      "small": "https://i0.wp.com/www.munchkintime.com/wp-content/uploads/2017/06/Best-Hamburger-Recipe-to-make-for-Fathers-Day-from-Munchkintime.com-46.jpg?resize=600%2C900",
+      "large": "https://i0.wp.com/www.munchkintime.com/wp-content/uploads/2017/06/Best-Hamburger-Recipe-to-make-for-Fathers-Day-from-Munchkintime.com-46.jpg?resize=600%2C900"
 	}
 },"Cheesecake":{
 	"name":"Cheesecake",
