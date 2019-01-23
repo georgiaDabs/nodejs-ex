@@ -72,9 +72,7 @@ var initDb = function(callback) {
     console.log('Connected to MongoDB at: %s', mongoURL);
   });
 };
-const express=require('express');
 const bodyParser=require('body-parser');
-const app=express();
 app.use(bodyParser.urlencoded({    
   extended: true
 })); 
