@@ -72,9 +72,9 @@ var initDb = function(callback) {
     console.log('Connected to MongoDB at: %s', mongoURL);
   });
 };
-
+const express=require('express');
 const bodyParser=require('body-parser');
-
+const app=express();
 app.use(bodyParser.urlencoded({    
   extended: true
 })); 
@@ -134,7 +134,7 @@ app.all('/user/',function(req, res, next) {
     next()
 	
 });
-app.get("/people/:user", function(req,res,next){
+app.get("/user/:user", function(req,res,next){
 	res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
 	var person=req.params.user;
@@ -174,10 +174,6 @@ app.get('/people',function(req,resp,next){
 	resp.send(people);
 	
 });
-app.get('/',function(req,resp,next){
-	resp.send('hello');
-	
-});
 app.listen(3000, ()=>{
 	console.log("Listening on port 3000");
 	
@@ -210,17 +206,14 @@ app.post("/newRecipe",function(req,res,next){
 app.post("/people",function(req,res,next){
 	res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
-	var u=req.headers.username;
-	if(people.hasOwnProperty(u)){
-		res.send(400);
-	}else{
-		if(req.headers.access_token=="concertina"){
-			people[req.headers.username]={username:req.headers.username,
-			forename: req.headers.forename, surname:req.headers.forename};
+	if(req.body.access_token=="concertina"){
+		if(people.hasOwnProperty(req.body.username)){
+			res.status(400);
 		}else{
-			console.log("not right");
-			res.send(403);
-	}}
+		people[req.body.username]={username:req.body.username,forename:req.body.forename,surname:req.body.surname}}
+	}else{
+		
+		res.status(403);
+	}
 });
-
 module.exports = app ;
