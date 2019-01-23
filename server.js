@@ -187,8 +187,8 @@ app.get('/people',function(req,resp,next){
 	resp.send(people);
 	
 });
-app.listen(3000, ()=>{
-	console.log("Listening on port 3000");
+app.listen(8090, ()=>{
+	console.log("Listening on port 8090");
 	
 });
 app.get("/isUser/:username",function(req,res,next){
