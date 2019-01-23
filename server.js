@@ -75,6 +75,7 @@ var initDb = function(callback) {
 
 const bodyParser=require('body-parser');
 
+app.use(cors());
 app.use(bodyParser.urlencoded({    
   extended: true
 })); 
@@ -134,7 +135,7 @@ app.all('/user/',function(req, res, next) {
     next()
 	
 });
-app.get("/user/:user", function(req,res,next){
+app.get("/people/:user", function(req,res,next){
 	res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
 	var person=req.params.user;
@@ -210,28 +211,17 @@ app.post("/newRecipe",function(req,res,next){
 app.post("/people",function(req,res,next){
 	res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
-	if(req.body.access_token=="concertina"){
-		if(people.hasOwnProperty(req.body.username)){
-			res.status(400);
-		}else{
-		people[req.body.username]={username:req.body.username,forename:req.body.forename,surname:req.body.surname}}
+	var u=req.headers.username;
+	if(people.hasOwnProperty(u)){
+		res.send(400);
 	}else{
-		
-		res.status(403);
-	}
- });
-
-// error handling
-app.use(function(err, req, res, next){
-  console.error(err.stack);
-  res.status(500).send('Something bad happened!');
+		if(req.headers.access_token=="concertina"){
+			people[req.headers.username]={username:req.headers.username,
+			forename: req.headers.forename, surname:req.headers.forename};
+		}else{
+			console.log("not right");
+			res.send(403);
+	}}
 });
-
-initDb(function(err){
-  console.log('Error connecting to Mongo. Message:\n'+err);
-});
-
-app.listen(port, ip);
-console.log('Server running on http://%s:%s', ip, port);
 
 module.exports = app ;
