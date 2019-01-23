@@ -185,7 +185,7 @@ window.onload=function(){
 		$("#cardGroup").show();
 		$("#individual").hide();
 		
-		$.get("http://127.0.0.1:3000/allrecipes",
+		$.get("http://recipies-recipies.1d35.starter-us-east-1.openshiftapps.com/allrecipes",
 			function(data){
 				var recipies=[]
 				htmlString="";
@@ -212,7 +212,7 @@ window.onload=function(){
 			this._forename=forename;
 			this._surname=surname;
 			var recipes=[];
-			$.get("http://127.0.0.1:3000/user/"+username,function(data){
+			$.get("http://recipies-recipies.1d35.starter-us-east-1.openshiftapps.com/user/"+username,function(data){
 		
 				for(var id in data){
 					var r= new Recipe(data[id].name,data[id].writer,data[id].description,"\images/foodExample1");
@@ -241,7 +241,7 @@ window.onload=function(){
 		$("#individual").hide();
 		var htmlString="";
 		$("#carouselExampleIndicators").show();
-		$.get("http:/127.0.0.1:3000/people",function(data){
+		$.get("http://recipies-recipies.1d35.starter-us-east-1.openshiftapps.com/people",function(data){
 		
 			for(var id in data){
 				person=new Person(data[id].username,data[id].forename,data[id].surname);
@@ -258,7 +258,7 @@ window.onload=function(){
 		$("#cardGroup").html("");
 		$("#carouselExampleIndicators").hide();
 		$("#individual").show();
-		$.get("http:/127.0.0.1:3000/recipe/"+name,function(data){
+		$.get("http://recipies-recipies.1d35.starter-us-east-1.openshiftapps.com/recipe/"+name,function(data){
 		
 			$("#Ind_pic").attr("src",data.image.small);
 			$("#Ind_title").html(data.name);
@@ -284,12 +284,12 @@ window.onload=function(){
 		$("#cardGroup").html("");
 		$("#carouselExampleIndicators").hide();
 		$("#individual").show();
-		$.get("http:/127.0.0.1:3000/user/"+name,function(data){
+		$.get("http://recipies-recipies.1d35.starter-us-east-1.openshiftapps.com/user/"+name,function(data){
 			$("#Ind_pic").attr("src","\images/usericon.png");
 			$("#Ind_title").html(data.username);
 			$("#Ind_description").html(data.forename+" "+data.surname);
 		});
-		$.get("http:/127.0.0.1:3000/recipes/"+name,function(data){
+		$.get("http://recipies-recipies.1d35.starter-us-east-1.openshiftapps.com/recipes/"+name,function(data){
 			var htmlString="";
 			for(var id in data){
 				var r= new Recipe(data[id].name,data[id].writer,data[id].description,data[id].image.small);
@@ -308,7 +308,7 @@ window.onload=function(){
 	function tryLogIn(){
 		var name=$("#inputUsername").val();
 		
-		$.get("http:/127.0.0.1:3000/isUser/"+name,function(data){
+		$.get("http://recipies-recipies.1d35.starter-us-east-1.openshiftapps.com/isUser/"+name,function(data){
 			if(data==true){
 				currentUser=name;
 				$("#logLabel").html(currentUser);
@@ -331,7 +331,7 @@ window.onload=function(){
 	function postRecipe(){
 		alert("post called");
 		alert($("#recipe_form").serialize());
-		$.post("http:/127.0.0.1:3000/newRecipe",$("#recipe_form").serialize()+"&image=\images/notAvailable.jpg&writer="+currentUser,function(data){
+		$.post("http://recipies-recipies.1d35.starter-us-east-1.openshiftapps.com/newRecipe",$("#recipe_form").serialize()+"&image=\images/notAvailable.jpg&writer="+currentUser,function(data){
 			alert(data);
 		});
 	}
