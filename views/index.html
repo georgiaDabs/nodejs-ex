@@ -263,8 +263,8 @@ window.onload=function(){
 		$("#carouselExampleIndicators").hide();
 		$("#individual").show();
 		$.get("http://recipies-recipies.1d35.starter-us-east-1.openshiftapps.com/recipe/"+name,function(data){
-			var rating=(data.image.rating);
-			alert(rating);
+			var rating=(data.rating);
+			alert(data.rating);
 			var ratingStr="";
 			if(rating==1){
 				ratingStr+="<span class=\"fa fa-star checked\"></span>";
