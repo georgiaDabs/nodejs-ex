@@ -88,7 +88,7 @@
 					</div>
 					<div class="details col-md-6">
 						<h3 class="product-title" id="Ind_title"></h3>
-						
+						<div id="ratingDiv"></div>
 						<p class="product-description" id="Ind_description"></p>
 						<p class="product-description" id="Ind_author"></p>
 						<div class="action">
@@ -263,7 +263,43 @@ window.onload=function(){
 		$("#carouselExampleIndicators").hide();
 		$("#individual").show();
 		$.get("http://recipies-recipies.1d35.starter-us-east-1.openshiftapps.com/recipe/"+name,function(data){
-		
+			var rating=(data.image.rating);
+			alert(rating);
+			var ratingStr="";
+			if(rating==1){
+				ratingStr+="<span class=\"fa fa-star checked\"></span>";
+				ratingStr+="<span class=\"fa fa-star\"></span>";
+				ratingStr+="<span class=\"fa fa-star\"></span>";
+				ratingStr+="<span class=\"fa fa-star\"></span>";
+				ratingStr+="<span class=\"fa fa-star\"></span>";
+			}else if(rating==2){
+				ratingStr+="<span class=\"fa fa-star checked\"></span>";
+				ratingStr+="<span class=\"fa fa-star checked\"></span>";
+				ratingStr+="<span class=\"fa fa-star\"></span>";
+				ratingStr+="<span class=\"fa fa-star\"></span>";
+				ratingStr+="<span class=\"fa fa-star\"></span>";
+			}else if(rating==3){
+				ratingStr+="<span class=\"fa fa-star checked\"></span>";
+				ratingStr+="<span class=\"fa fa-star checked\"></span>";
+				ratingStr+="<span class=\"fa fa-star checked\"></span>";
+				ratingStr+="<span class=\"fa fa-star\"></span>";
+				ratingStr+="<span class=\"fa fa-star\"></span>";
+			}else if(rating==4){
+				ratingStr+="<span class=\"fa fa-star checked\"></span>";
+				ratingStr+="<span class=\"fa fa-star checked\"></span>";
+				ratingStr+="<span class=\"fa fa-star checked\"></span>";
+				ratingStr+="<span class=\"fa fa-star checked\"></span>";
+				
+				ratingStr+="<span class=\"fa fa-star\"></span>";
+			}else{
+			
+				ratingStr+="<span class=\"fa fa-star checked\"></span>";
+				ratingStr+="<span class=\"fa fa-star checked\"></span>";
+				ratingStr+="<span class=\"fa fa-star checked\"></span>";
+				ratingStr+="<span class=\"fa fa-star checked\"></span>";
+				ratingStr+="<span class=\"fa fa-star checked\"></span>";
+			}
+			$("#ratingDiv").html(ratingStr);
 			$("#Ind_pic").attr("src",data.image.small);
 			$("#Ind_title").html(data.name);
 			$("#Ind_description").html(data.description);

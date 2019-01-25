@@ -83,8 +83,8 @@ var recipes={"Spaghetti":{
     "description": "lrevnofn ",
     "rating": 4,
     "image": {
-      "small": "https://img1.southernliving.timeinc.net/sites/default/files/styles/story_card_hero/public/image/2016/01/main/all-one-spaghetti-x_0_0.jpg?itok=vHNcRqaZ",
-	  "large": "https://img1.southernliving.timeinc.net/sites/default/files/styles/story_card_hero/public/image/2016/01/main/all-one-spaghetti-x_0_0.jpg?itok=vHNcRqaZ"
+      "small": "https://images-gmi-pmc.edge-generalmills.com/8890dc0a-ec93-4adf-b496-d6b264b56818.jpg",
+	  "large": "https://images-gmi-pmc.edge-generalmills.com/8890dc0a-ec93-4adf-b496-d6b264b56818.jpg"
 	  }
 },"Cheesecake":{
 	"name":"Cheesecake",
@@ -92,8 +92,8 @@ var recipes={"Spaghetti":{
 	"description":"buwfeivnles",
 	"rating":3,
 	"image":{
-		"small":"http://www.statevision.in/wp-content/uploads/2016/03/New-York-Cheesecake-Android-N-624x351.jpg",
-		"large":"http://www.statevision.in/wp-content/uploads/2016/03/New-York-Cheesecake-Android-N-624x351.jpg"
+		"small":"https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2017/03/salted-caramel-cheesecake.jpg?itok=4skJuJRl",
+		"large":"https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2017/03/salted-caramel-cheesecake.jpg?itok=4skJuJRl"
 		}
 },"Burgers":{
 	"name":"Burgers",
