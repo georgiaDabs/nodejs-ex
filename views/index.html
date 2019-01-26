@@ -282,6 +282,7 @@ window.onload=function(){
 			$("#Ind_title").html(data.name);
 			$("#Ind_description").html(data.description);
 			$("#Ind_author").html("by "+data.writer);
+			$("#authorButt").show();
 			$("#authorButt").on("click",function(){
 				loadIndPerson(data.writer);
 			});
@@ -302,6 +303,8 @@ window.onload=function(){
 		$("#cardGroup").html("");
 		$("#carouselExampleIndicators").hide();
 		$("#individual").show();
+		$("#ratingDiv").html("");
+		$("#authorButt").hide();
 		$.get("http://recipies-recipies.1d35.starter-us-east-1.openshiftapps.com/user/"+name,function(data){
 			$("#Ind_pic").attr("src","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs5aXkWhEohP_84RQMZHDQqvOgW2rZMh4x6v5ddNuP3Cm8WvglUA");
 			$("#Ind_title").html(data.username);
@@ -347,7 +350,7 @@ window.onload=function(){
 		$("#addRecipe").show();
 	}
 	function postRecipe(){
-		$.post("http://recipies-recipies.1d35.starter-us-east-1.openshiftapps.com/newRecipe",$("#recipe_form").serialize()+"&image=data:image/jpeg;base64,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&writer="+currentUser,function(data){
+		$.post("http://recipies-recipies.1d35.starter-us-east-1.openshiftapps.com/newRecipe",$("#recipe_form").serialize()+"&image=\"https://upload.wikimedia.org/wikipedia/en/d/d1/Image_not_available.png\"&writer="+currentUser,function(data){
 			
 		});
 	}
