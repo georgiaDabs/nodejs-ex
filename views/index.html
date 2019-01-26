@@ -119,7 +119,7 @@
   
   <div class="checkbox mb-3">
     <label>
-      <input type="checkbox" value="remember-me"> Remember me
+      <input type="checkbox" id="rememberCheck" value="remember-me"> Remember me
     </label>
   </div>
   <button class="btn btn-lg btn-primary btn-block" onClick=tryLogIn() type="submit">Sign in</button>
@@ -336,8 +336,11 @@ window.onload=function(){
 				$("#logLabel").html(currentUser);
 				
 				loadRecipes();
+				if($("#rememberCheck").checked==true){
 				document.cookie="username = "+currentUser;
+				
 				var c=document.cookie;
+				}
 			}else{
 				alert("Not a user try again");
 			}
@@ -351,6 +354,7 @@ window.onload=function(){
 		$("#addRecipe").show();
 	}
 	function postRecipe(){
+	 alert($("#recipe_form").serialize());
 		$.post("http://recipies-recipies.1d35.starter-us-east-1.openshiftapps.com/newRecipe",$("#recipe_form").serialize()+"&image=https://upload.wikimedia.org/wikipedia/en/d/d1/Image_not_available.png &writer="+currentUser,function(data){
 			
 		});
