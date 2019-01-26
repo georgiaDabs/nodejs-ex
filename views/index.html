@@ -337,9 +337,11 @@ window.onload=function(){
 				
 				loadRecipes();
 				if($("#rememberCheck").checked==true){
-				document.cookie="username = "+currentUser;
+				document.cookie="username = "+currentUser+"; expires=Thu, 18 Dec 2020 12:00:00 UTC";
 				
 				var c=document.cookie;
+				}else{
+					document.cookie
 				}
 			}else{
 				alert("Not a user try again");
