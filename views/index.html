@@ -267,33 +267,16 @@ window.onload=function(){
 			alert(data.rating);
 			var ratingStr="";
 			if(rating==1){
-				ratingStr+="<span class=\"fa fa-star checked\"></span>";
-				ratingStr+="<span class=\"fa fa-star\"></span>";
-				ratingStr+="<span class=\"fa fa-star\"></span>";
-				ratingStr+="<span class=\"fa fa-star\"></span>";
-				ratingStr+="<span class=\"fa fa-star\"></span>";
+				ratingStr+="★☆☆☆☆";
 			}else if(rating==2){
-				ratingStr+="<span class=\"fa fa-star checked\"></span>";
-				ratingStr+="<span class=\"fa fa-star checked\"></span>";
-				ratingStr+="<span class=\"fa fa-star\"></span>";
-				ratingStr+="<span class=\"fa fa-star\"></span>";
-				ratingStr+="<span class=\"fa fa-star\"></span>";
+				ratingStr+="★★☆☆☆";
 			}else if(rating==3){
 				ratingStr+="★★★☆☆";
 			}else if(rating==4){
-				ratingStr+="<span class=\"fa fa-star checked\"></span>";
-				ratingStr+="<span class=\"fa fa-star checked\"></span>";
-				ratingStr+="<span class=\"fa fa-star checked\"></span>";
-				ratingStr+="<span class=\"fa fa-star checked\"></span>";
-				
-				ratingStr+="<span class=\"fa fa-star\"></span>";
+				ratingStr+="★★★★☆";
 			}else{
 			
-				ratingStr+="<span class=\"fa fa-star checked\"></span>";
-				ratingStr+="<span class=\"fa fa-star checked\"></span>";
-				ratingStr+="<span class=\"fa fa-star checked\"></span>";
-				ratingStr+="<span class=\"fa fa-star checked\"></span>";
-				ratingStr+="<span class=\"fa fa-star checked\"></span>";
+				ratingStr+="★★★★★";
 			}
 			alert(ratingStr);
 			$("#ratingDiv").html(ratingStr);
