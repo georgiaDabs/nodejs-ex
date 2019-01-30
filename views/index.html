@@ -363,7 +363,8 @@ window.onload=function(){
 		alert("none empty string");
 		$.post("http://recipies-recipies.1d35.starter-us-east-1.openshiftapps.com/newRecipe",$("#recipe_form").serialize()+"&image= https://upload.wikimedia.org/wikipedia/en/d/d1/Image_not_available.png &writer="+currentUser,function(data){
 			
-		});}
+		});
+		}
 	}
 	function logOut(){
 		if (currentUser=="none"){
