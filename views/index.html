@@ -336,13 +336,12 @@ window.onload=function(){
 				$("#logLabel").html(currentUser);
 				
 				loadRecipes();
-				if($("#rememberCheck").checked==true){
-				alert("remeber checked");
+				if($("#rememberCheck").checked){
+				
 				document.cookie="username = "+currentUser+"; expires=Thu, 18 Dec 2020 12:00:00 UTC";
 				
 				var c=document.cookie;
 				}else{
-				alert("rememeber not checked");
 					document.cookie="username = "+currentUser;
 				}
 			}else{
